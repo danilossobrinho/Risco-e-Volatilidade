@@ -13,7 +13,10 @@ if(sum(as.numeric(!pacotes %in% installed.packages())) != 0){
   sapply(pacotes, require, character = T) 
 }
 
-
+install.packages("knitr")
+library(knitr)
+install.packages("tinytex")
+tinytex::install_tinytex()
 
 #Selecionando as ações da bolsa a serem analisadas
 produtos <- c('ITSA4.SA', 'TRIS3.SA', 'CVCB3.SA', 'GFSA3.SA')

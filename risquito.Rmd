@@ -4,15 +4,19 @@ author: "Danilo S. Sobrinho"
 date: "2022-12-17"
 output:
   html_document:
-       highlight: textmate
-       includes:
-         in_header: "cabecalho.html"
-       theme: flatly
-       number_sections: yes
-       toc: yes
-       toc_float:
-         collapsed: yes
-         smooth_scroll: no
+    highlight: textmate
+    includes:
+      in_header: cabecalho.html
+    theme: flatly
+    number_sections: yes
+    toc: yes
+    toc_float:
+      collapsed: yes
+      smooth_scroll: no
+  pdf_document:
+    toc: yes
+  word_document:
+    toc: yes
 ---
 
 # Contextualização  
@@ -104,9 +108,9 @@ kable(head(fech, 10))
   
 ## Criando tabelas defasadas para calculo dos Retornos
 Para quem ja estudou variáveis em estatística, deve esta familizarizado com o termo "variáveis discretas" e "variáveis contínuas", a primeira são valores de fácil mesuração, como número de filhos, idade, ou número de dormitórios em uma casa, já as variáveis contínuas podem assumir qualquer valor, portando a abordagem em análises deve ser diferentes.  
-Retornos discretos e contínuos seguem a mesma lógica, e isso veremos nos próximos tópicos.
+Retornos discretos e contínuos seguem a mesma lógica das variáveis discretas e contínuas, e isso veremos nos próximos tópicos.
   
-Para podermos calcularmos os retornos, precisamos criar uma tabela defasada. Uma tabela defasada nada mais é do que uma tabela com a ausência do primeiro valor. Nos proximos tópicos, ficará mais claro o porque devemos executar este passo, segue o script:
+Para podermos calcularmos os retornos, precisamos criar uma tabela defasada. Uma tabela defasada nada mais é do que uma tabela com a ausência do primeiro valor. Nos proximos tópicos, ficará claro o porque devemos executar este passo, segue o script:
 ```{r}
 fech <- na.omit(fech)
 fechlag <- lag(fech)
@@ -128,7 +132,7 @@ retorno.dis <- as.data.frame(retorno.dis)
 ```{r, echo=F}
 kable(head(retorno.dis, 5))
 ```
-Veja que como qualquer ação analisada em um curto período, elas possuem variações positivas e negativas, e o risco é calculado apartir dessas variações. Se um produto financeiro varia mais vezes de forma positiva, podemos concluir que este produto tem um risco baixo. Além do Risco podemos analisar o nosso retorno médio, vamos construir a tabela:
+Veja que como qualquer ação analisada em um curto período, elas possuem variações positivas e negativas, e o risco é calculado apartir da amplitude dessas variações. Se um produto financeiro varia mais vezes de forma positiva, podemos concluir que este produto tem um retorno médio positivo. 
 ```{r, results='hide', message=F}
 retorno.dis.med <- mean(retorno.dis[,1])
 
@@ -176,7 +180,7 @@ retorno.con <- as.data.frame(retorno.con)
 kable(head(retorno.con, 5))
 ```
   
-A única diferença em comparação ao calculo dos Retornos discretos ja foi exposta acima, portanto, os proximos passos são muito semelhantes, segue o script:
+A única diferença em comparação ao calculo dos Retornos discretos ja foi exposta acima, portanto, os proximos passos são praticamente os mesmos, segue o script:
   
 ```{r, results='hide', message=F}
 retorno.con.med <- mean(retorno.con[,1])
@@ -202,7 +206,7 @@ row.names(VolatRetor) <- VolatRetor$...1
 VolatRetor <- VolatRetor[-1]
 ```
 
-Sem muitas mudanças em comparação com com o Retorno contínuo e o Risco, os resultados apresentados foram praticamentes iguais, isso se dá pelo fato do uso do mesmo banco de dados que posse o padrão de  valores diários.
+Sem muitas mudanças em comparação com o Retorno contínuo e o Risco, os resultados apresentados foram praticamentes iguais, isso se dá pelo fato do uso da mesma carteira e pela periodicidade dos fechamentos .
 ```{r, echo=F}
 kable(VolatRetor)
 ```
