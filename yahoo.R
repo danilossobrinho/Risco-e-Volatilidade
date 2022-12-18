@@ -13,6 +13,7 @@ if(sum(as.numeric(!pacotes %in% installed.packages())) != 0){
   sapply(pacotes, require, character = T) 
 }
 
+#Pacotes usados para uso do RMarkdown
 install.packages("knitr")
 library(knitr)
 install.packages("tinytex")
@@ -34,6 +35,12 @@ precos <- tq_get(produtos,
                  from = data_ini,
                  tp = data_fin,
                  get = "stock.prices")
+
+#Obsservando os preços dos ativos escolhidos
+head(CVCB3.SA[,-5:-6], 3)
+head(GFSA3.SA[,-5:-6], 3)
+round(head(ITSA4.SA[,-5:-6], 3),2)
+head(TRIS3.SA[,-5:-6], 3)
 
 # gráfico da variação de preços dos ativos do nosso estudo
 par(mfrow=c(2,2))
