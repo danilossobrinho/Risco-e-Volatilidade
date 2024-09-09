@@ -43,9 +43,9 @@ Um passo fundamental é definir a carteira de ações que será estudada. Será 
   
 Definindo os produtos e o período  
 ```{r, message=F, warning=F}
-produtos <- c('ITSA4.SA', 'TRIS3.SA', 'CVCB3.SA', 'GFSA3.SA')
+produtos <- c('ITSA4.SA', 'TRIS3.SA', 'CVCB3.SA', 'WEGE3.SA')
 data_ini <- '2022-02-01'
-data_fin <- '2022-12-14'
+data_fin <- '2023-12-15'
 ```
   
 Utilizando os objetos criados anteriormente, e as funções ``getSymbols`` (função que busca os valores dos ativos no [Yahoo Finance](https://finance.yahoo.com/) relacionando com os stickers armazenados em **produtos**) e ``tq_get`` (função que transforma os dados capturados no [Yahoo Finance](https://finance.yahoo.com/) em formato tibble com os resultados empilhados), escrevemos o scrip:
@@ -71,7 +71,7 @@ Foram gerados 5 objetos, sendo 4 deles, tabelas com os valores das ações, para
 Uma visão geral dos valores de abertura, maior valor diário, menor valor diário e valor de fechamento, praticados no início do período em estudo
 ```{r, echo=F}
 head(CVCB3.SA[,-5:-6], 3)
-head(GFSA3.SA[,-5:-6], 3)
+head(WEGE3.SA[,-5:-6], 3)
 round(head(ITSA4.SA[,-5:-6], 3),2)
 head(TRIS3.SA[,-5:-6], 3)
 ```
@@ -79,7 +79,7 @@ A seguir, um gráfico demonstando o valor de fechamento das ações ao longo do 
 ```{r, echo=F}
 par(mfrow=c(2,2))
 barplot(CVCB3.SA$CVCB3.SA.Adjusted, main = 'CVCB3')
-barplot(GFSA3.SA$GFSA3.SA.Adjusted, main = 'GFSA3')
+barplot(WEGE3.SA$WEGE3.SA.Adjusted, main = 'WEGE3')
 barplot(ITSA4.SA$ITSA4.SA.Adjusted, main = 'ITSA4')
 barplot(TRIS3.SA$TRIS3.SA.Adjusted, main = 'TRIS3')
 ```

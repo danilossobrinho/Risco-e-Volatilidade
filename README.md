@@ -1,4 +1,6 @@
-# Contextualização  
+# Contextualização 
+
+Infelizmente eu estou sem usar o R markdown
 Risco e Volatilidade são grandezas similares, que podem muita das vezes serem interpretadas da mesma forma. Ambas são calculadas apartir dos valores dos retornos de ativos de renda variável. Os retornos podem ser obtidos por valores diários, semanais, mensais, tudo dependendo do objetivo da pesquisa, nesse cenário o calculo do Risco satisfaz. Outro caso muito comum nos mercados de bolsas, são as chamadas cotações de alta frequência, ativos que  podem ter as suas cotações negociadas em um curtíssimo espaço de tempo, de um em um minuto ou qualquer outro intervalo de tempo contínuo.  
 Neste relatório, vamos entender como podemos observar os valores de um ativo, fazer o cálculo dos retornos (contínuos e discretos), gerar as medidas de retorno médio e observar os seus riscos e volatilidades *com o R*
 
@@ -17,7 +19,7 @@ Caso não tenha os pacotes necessários, é preciso baixa-los pelo pelo comando 
 
 # Preparando os dados
 ## Selecionando as ações do mercado de bolsas
-Um passo fundamental é definir a carteira de ações que será estudada. Será escolhido 4 produtos financeiros de forma aleatória e especificamente didática, não há nenhum tipo de viés ou intenção de recomendação destes ativos.  
+Um passo fundamental é definir a carteira de ações que será estudada. Será escolhido 4 produtos financeiros de forma aleatória e especificamente didática para este projeto, não há nenhum tipo de viés ou intenção de recomendação destes ativos.  
   
 Definindo os produtos e o período  
 
